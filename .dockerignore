@@ -1,0 +1,36 @@
+# Ignore Python cache and virtual environment
+__pycache__/
+*.py[cod]
+*$py.class
+.python-version
+venv/
+env/
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Ignore downloaded models (they should be mounted as volumes)
+*.safetensors
+*.bin
+*.pth
+*.pt
+
+# Ignore Hugging Face cache (will be mounted as volume)
+huggingface_cache/
+
+# Ignore output directories
+outputs/
+
+# Ignore Git and IDE files
+.git/
+.gitignore
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Ignore large files
+*.zip
+*.tar.gz
+*.tar
+*.7z

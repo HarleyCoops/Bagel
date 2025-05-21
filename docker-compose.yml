@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  bagel:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bagel
+    runtime: nvidia  # Requires NVIDIA Container Toolkit
+    volumes:
+      - .:/app
+      - ./huggingface_cache:/app/huggingface_cache
+      - ./outputs:/app/outputs
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - PYTHONUNBUFFERED=1
+    working_dir: /app
+    tty: true
+    stdin_open: true
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
